@@ -1,4 +1,4 @@
-# crequest-api
+# moneymanager-api
 Start project
 ```
 docker compose -f "docker-compose.yml" up -d --build
