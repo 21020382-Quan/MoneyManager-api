@@ -3,12 +3,13 @@ from datetime import datetime
 from sqlmodel import Field, Relationship, SQLModel
 
 class CategoryBase(SQLModel):
-    user_name: str = Field(unique=True, index=True)
-    category_name: str 
+    pass
 
 # Database model, database table inferred from class name
 class Category(CategoryBase, table=True):
     id: int | None = Field(default=None, primary_key=True)
+    user_name: str = Field(unique=True, index=True)
+    category_name: str 
     created_at: datetime | None = Field(default_factory=datetime.now)
     updated_at: datetime | None = Field(default_factory=datetime.now)
 
