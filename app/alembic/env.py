@@ -22,7 +22,7 @@ fileConfig(config.config_file_name)
 # target_metadata = mymodel.Base.metadata
 # target_metadata = None
 
-from app.models import users, categories, transactions, wallets
+from app.models import categories, transactions, wallets
 
 target_metadata = SQLModel.metadata
 

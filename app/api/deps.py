@@ -4,13 +4,10 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from pydantic import ValidationError
 from sqlmodel import Session, select
-from core.const import UserRoleType
 from core.config import settings
 from collections.abc import Generator
 from core.db import engine
-from models.users import User, UserOut
 from jose import ExpiredSignatureError, JWTError, jwt
-from core import security
 
 reusable_oauth2 = OAuth2PasswordBearer(
     tokenUrl=f"{settings.ROOT_PATH+settings.API_V1_STR}/auth/login"
@@ -42,3 +39,4 @@ def get_db() -> Generator[Session, None, None]:
     with Session(engine) as session:
         yield session
 
+SessionDep = Annotated[Session, Depends(get_db)]
