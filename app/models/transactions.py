@@ -5,7 +5,6 @@ from sqlmodel import Field, Relationship, SQLModel
 class TransactionBase(SQLModel):
     pass
 
-# Database model, database table inferred from class name
 class Transaction(TransactionBase, table=True):
     id: int | None = Field(default=None, primary_key=True)
     description: str
